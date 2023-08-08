@@ -1,4 +1,4 @@
-namespace backend;
+namespace ContRev.Backend;
 
 public class WeatherForecast
 {
