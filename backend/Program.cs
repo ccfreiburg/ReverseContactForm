@@ -1,4 +1,4 @@
-namespace ContRev.Backend {
+namespace ContRev.Backend;
 public class Program
 {
     public static void Main(string[] args)
@@ -18,6 +18,6 @@ public class Program
             .ConfigureWebHostDefaults(webBuilder =>
             {
                 webBuilder.UseStartup<Startup>().UseUrls("http://0.0.0.0:5084");
-            });
-}
+
+        });
 }

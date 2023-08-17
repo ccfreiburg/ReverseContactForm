@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import { RouterLink, RouterView } from 'vue-router';
+import { useAuthStore } from './stores';
+const authStore = useAuthStore();
 </script>
 
 <template>
-  <div class="bg-blue-500">
-    Hi
-  </div>
+    <div class="app-container">
+        <RouterView />
+    </div>
 </template>

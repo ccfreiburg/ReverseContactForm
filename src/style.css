@@ -1,3 +1,111 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+     :root {
+        --color-text-base: 0, 0, 0;
+        --color-text-dark: 200, 200, 200;
+        --color-text-muted: 175, 175, 175;
+        --color-text-muted-dark: 125, 125,125;
+        --color-text-inverted: 220, 220, 220;
+        --color-text-accent: 218, 109, 41;
+        --color-bg-light: 255, 255, 255;
+        --color-bg-dark: 14, 14, 22;
+        --color-bg-muted: 229, 231, 235;
+        --color-bg-muted-dark: 24, 24, 32;
+        --color-bg-player: 10, 10, 14;
+        --color-fill: 185, 28, 28;
+        --color-button-accent: 218, 109, 41;
+        --color-button-accent-hover: 198, 139, 71;
+        --color-button-muted: 239, 170, 34;
+        --color-grad-start: 239, 170, 34;
+        --color-grad-via: 218, 109, 41;
+        --color-grad-end: 218, 109, 41;
+        --color-grad-start-dark: 239, 170, 34;
+        --color-grad-end-dark: 218, 109, 41;
+        --color-error: 255, 0, 0;
+    } 
+    .theme-lila {
+        --color-text-base: 17, 24, 2;
+        --color-text-dark: 200, 200, 200;
+        --color-text-muted: 80, 80, 80;
+        --color-text-muted-dark: 175, 155, 175;
+        --color-text-inverted: 235, 250, 204;
+        --color-text-accent: 25, 0, 24;
+        --color-bg-light: 255, 245, 255;
+        --color-bg-dark: 10, 3, 13;
+        --color-bg-muted: 220, 215, 235;
+        --color-bg-muted-dark: 20, 6, 26;
+        --color-bg-player: 14, 8, 18;
+        --color-fill: 179, 255, 23;
+        --color-button-accent: 99, 102, 241;
+        --color-button-accent-hover: 150, 102, 241;
+        --color-button-muted: 212, 255, 122;
+        --color-grad-start: 220, 122, 251;
+        --color-grad-via: 99, 102, 241;
+        --color-grad-end: 150, 102, 241;
+        --color-grad-start-dark: 36, 52, 3;
+        --color-grad-end-dark: 36, 52, 3;
+        --color-error: 255, 0, 0;
+     }  
+
+  
+@font-face {
+    font-family: 'Mulish';
+    font-weight: 200;
+    src: url('/src/assets/fonts/Mulish/static/Mulish-ExtraLight.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'Mulish';
+    font-weight: 500;
+    src: url('/src/assets/fonts/Mulish/static/Mulish-Medium.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'Mulish';
+    font-weight: 500;
+    font-style: italic;
+    src: url('/src/assets/fonts/Mulish/static/Mulish-MediumItalic.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'Mulish';
+    font-weight: 800;
+    font-style: italic;
+    src: url('/src/assets/fonts/Mulish/static/Mulish-ExtraBold.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'Mulish';
+    font-weight: 700;
+    font-style: italic;
+    src: url('/src/assets/fonts/Mulish/static/Mulish-Bold.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'Mulish';
+    font-weight: 600;
+    font-style: italic;
+    src: url('/src/assets/fonts/Mulish/static/Mulish-SemiBold.ttf') format('truetype');
+  }
+
+  input {
+    @apply bg-skin-muted focus:outline-none border border-skin-light ring-skin-light text-skin-base text-sm rounded-md focus:ring-skin-focus focus:border-skin-focus accent-transparent
+   }
+   select {
+    @apply bg-skin-muted focus:outline-none border border-skin-light ring-skin-light text-skin-base text-sm rounded-md focus:ring-skin-focus focus:border-skin-focus accent-transparent
+   }
+   
+   textarea {
+    @apply  bg-skin-muted focus:outline-none border border-skin-light text-skin-base text-sm rounded-md focus:ring-skin-focus focus:border-skin-focus
+   }
+
+   .menu-underline {
+    background: linear-gradient(90deg, rgba(239, 170, 34, 1) 0%, rgba(239, 170, 34, 1) 36%, rgba(218, 109, 41, 1) 65%, rgba(218, 109, 41, 1) 100%);
+    background-repeat: no-repeat;
+    background-position: bottom 2px center;
+    background-size: 100% 9px ;
+  }
+ }
