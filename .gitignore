@@ -1,3 +1,8 @@
+#sec
+.env
+backend/appsettings.json
+backend/Database.*
+
 # Logs
 logs
 *.log
