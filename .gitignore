@@ -307,3 +307,4 @@ __pycache__/
 backend/data/Database.db
 backend/data/Database.db-shm
 backend/data/Database.db-wal
+yarn.lock
