@@ -15,6 +15,9 @@ public class Program
 
     public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
+            .ConfigureAppConfiguration(configure => {
+                configure.AddEnvironmentVariables();
+            })
             .ConfigureWebHostDefaults(webBuilder =>
             {
                 webBuilder.UseStartup<Startup>().UseUrls("http://0.0.0.0:5084");
