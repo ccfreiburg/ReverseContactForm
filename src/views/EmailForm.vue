@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
-import { useRoute, useRouter } from "vue-router";
+import { useRoute } from "vue-router";
 import { fetchWrapper } from "../services"
 
 import Header from "../components/Header.vue";
@@ -19,26 +19,27 @@ const intro = ref(`Our information on the internet is free from any privacy rela
 const thanks = ref(false)
 const error = ref("")
 const message = ref("")
+const subject = ref("")
 const valid = ref("")
 const validated = computed(()=>{
     return message.value.length > 3 
 })
-function refresh() {
-    fetchWrapper.getraw("/api/Validation?slug="+route.params.slug)
-    .then((x)=> {
-        console.log(x)
-        if(!x.ok){
-            error.value = "This Link is not valid"
-        }
-        x.json()
-    })
-    .then((json)=> console.log(json))
+async function refresh() {
+    error.value = ""
+    try {
+        await fetchWrapper.get("/api/Validation?slug="+route.params.slug)
+            .then((o)=> {
+                valid.value= o.purpose
+            })
+    } catch (e) {
+        error.value = "This Link is not valid"
+    }
 }
 refresh()
 function submit() {
  const data = {
     slug: route.params.slug,
-    subject: "Web Form",
+    subject: subject.value,
     message: message.value
  }
  fetchWrapper.postraw("/api/message",data).then(()=>thanks.value=true)
@@ -53,8 +54,15 @@ function submit() {
                 {{ error }}
             </div>
             <div v-else-if="!thanks" class="flex flex-col w-full">
+                <div>
+                    Your Email to {{ valid }}
+                </div>
                 <div class="col-span-2">
-                    <label for="html" class="block mb-2 text-sm font-medium text-skin-muted">Your Message to {{ valid.purpose }}</label>
+                    <label for="subject" class="block mb-2 text-sm font-medium text-skin-muted">Subject</label>
+                    <input type="text" v-model="subject" id="subject" class="block w-full p-2.5" placeholder="Subject" required />
+                </div>
+                <div class="col-span-2">
+                    <label for="html" class="block mb-2 text-sm font-medium text-skin-muted">Your Message</label>
                     <textarea type="text" v-model="message" id="html" class="h-40  block w-full p-2.5" placeholder="Message text" required />
                 </div>
                 <div class="flex mt-8 place-content-end">

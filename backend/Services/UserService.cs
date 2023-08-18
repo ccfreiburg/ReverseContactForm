@@ -26,7 +26,8 @@ public class UserService : IUserService
         _secret = appSettings.Secret;
         _admin = appSettings.Admin;
         _pass = appSettings.Pass;
-    }
+        Console.WriteLine(_admin);
+        Console.WriteLine(_pass);    }
 
     public AuthenticateResponse Authenticate(AuthenticateRequest model)
     {

@@ -1,11 +1,11 @@
 <template>
     <div>
         <div class="flex items-center w-full h-20 shadow-md place-content-center">
-            <img class="h-12" src="../assets/images/logo.png" />
+            <img class="h-12" :src="logo" />
         </div>
     <section class="flex flex-col place-items-center">
       <div class="w-11/12 overflow-hidden -inset-y-8 sm:h-56 md:h-64 lg:h-72">
-          <img class="object-cover w-full" src="../assets/images/Calvary Chapel 22 Winter UhlArt Fotogrfie 2022-61-Header.jpg" alt="" />
+          <img class="object-cover w-full" :src="hero" alt="" />
       </div>
       <CleanContainer>
         <div class="flex flex-col items-center justify-center md:mt-4">
@@ -33,6 +33,13 @@ export default {
       intro: String,
     },
     components: {CleanContainer},
-    name: "Header"
+    name: "Header",
+    setup() {
+      return {
+        logo: new URL('../assets/images/logo.png', import.meta.url).href,
+        hero: new URL('../assets/images/Calvary Chapel 22 Winter UhlArt Fotogrfie 2022-61-Header.jpg', import.meta.url).href
+
+      }
+    }
 }
 </script>

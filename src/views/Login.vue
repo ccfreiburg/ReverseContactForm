@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import { storeToRefs } from "pinia";
 import { ref } from "vue";
-import { useAuthStore, useUsersStore } from "@/stores";
+import { useAuthStore } from "../stores/auth.store";
 import ButtonPrimary from "../components/ButtonPrimary.vue";
 
 const authStore = useAuthStore();
-const { user: authUser } = storeToRefs(authStore);
+//const { user: authUser } = storeToRefs(authStore);
 
 const error = ref("");
 const username = ref("");

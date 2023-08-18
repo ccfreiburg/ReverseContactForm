@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { onBeforeMount, ref } from "vue";
 import { useRouter } from "vue-router";
-import { useAuthStore } from '@/stores';
+import { useAuthStore } from '../stores/auth.store';
 import { fetchWrapper } from "../services"
 import ButtonPrimary from '../components/ButtonPrimary.vue';
 import ButtonSecondary from '../components/ButtonSecondary.vue';
 
 const isopen = ref(false);
-const openitem = ref({});
-const list = ref([]);
+const openitem = ref({} as any);
+const list = ref([] as Array<any>);
 const router = useRouter();
 
 function logout() {
@@ -25,9 +25,9 @@ function refresh() {
 onBeforeMount(() => {
   refresh()
 });
-function open(id) {
-  const item = list.value.find((item) => item.id == id);
-  openitem.value = { ...item }
+function open(id: number) {
+  const item = list.value.find((item: any) => item.id == id) as any;
+  openitem.value = { ...item as object }
   isopen.value = true;
 }
 function cancel() {

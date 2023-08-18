@@ -100,8 +100,8 @@ namespace ContRev.Backend
         public void ConfigureServices(IServiceCollection services)
             {
                 services.AddSingleton<AppSettings>();
-                AddJWTAuthentication(services, new AppSettings(Configuration).Secret);
-
+                var a = new AppSettings(Configuration);
+                AddJWTAuthentication(services, a.Secret);
                 services.AddControllers();
                 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
                 services.AddEndpointsApiExplorer();
@@ -112,7 +112,7 @@ namespace ContRev.Backend
                     config.RootPath = "dist";
                 });
 
-                services.AddDbContext<ContRevDb>(opt => opt.UseSqlite("Data Source=Database.db"));
+                services.AddDbContext<ContRevDb>(opt => opt.UseSqlite("Data Source=data/Database.db"));
 
 
                 if (HostingEnvironment.IsDevelopment()){

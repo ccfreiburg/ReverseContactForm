@@ -21,10 +21,8 @@ public class MessageController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Send( MessageRequest request )
     {
-        Console.WriteLine(request.Slug);
         var success=false;
         var oneTimeLink = await _oneTimeLinkService.Check(request.Slug);
-        Console.WriteLine(oneTimeLink);
         if (oneTimeLink!=null && oneTimeLink is OneTimeLink) {
             var template = await _templateService.GetByPurpose(oneTimeLink.Purpose);
             Console.WriteLine(template);

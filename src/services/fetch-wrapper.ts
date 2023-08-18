@@ -16,7 +16,7 @@ function request(method: string) {
 
 function request_raw(method: string) {
     return async (url: string, body?: any) => {
-        const requestOptions = {
+        const requestOptions: any = {
             method,
             headers: authHeader(url),
         };
