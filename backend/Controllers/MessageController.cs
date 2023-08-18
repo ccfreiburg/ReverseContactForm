@@ -25,8 +25,6 @@ public class MessageController : ControllerBase
         var oneTimeLink = await _oneTimeLinkService.Check(request.Slug);
         if (oneTimeLink!=null && oneTimeLink is OneTimeLink) {
             var template = await _templateService.GetByPurpose(oneTimeLink.Purpose);
-            Console.WriteLine(template);
-
             if (template != null)
                 success = await _emailService.Send(
                     _templateService.To(template),

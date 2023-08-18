@@ -1,0 +1,40 @@
+{
+    "de": "Deutsch",
+    "en": "Englisch",
+    "username": "Benutzername",
+    "password": "Passwort",
+    "passerror": "Benutzer oder Passwort fehlerhaft.",
+    "logout": "Abmelden",
+    "thankyou": "Danke!",
+    "OK": "Ok",
+    "cancel": "Abbruch",
+    "delete": "Löschen",
+    "error": "Fehler",
+    "emailform": {
+        "title": "Email senden",
+        "intro": "Hier kannst du deine Email an die ausgewählte Person oder Funktion senden",
+        "invalid": "Der Link ist fehlerhaft oder inzwischen veraltet. Bitte lass dir einen Neuen schicken.",
+        "your_email_to": "Deine Email an",
+        "subject": "Betreff",
+        "message": "Nachricht",
+        "done": "Deine Email wurde versandt!"
+    },
+    "contactform": {
+        "title": "Email senden",
+        "intro": "Wir haben keine Datenschutzrelevanten Funktionen auf unserer Webseite. Nur hier benötigen wir zuerst deine Emailadresse. Wir freuen uns von die zu hören!",
+        "who_to_contact": "Mit wem möchtest du in Kontakt treten?",
+        "your_email": "Deine Emailadresse",
+        "check_your_email": "Wir haben eine Email mit dem Link zum Kontaktformular an dich gesendet. Bitte schau in dein Postfach. Eventuell solltest du auch deinen Spam checken."
+    },
+    "templates": {
+        "active": "Aktiv",
+        "purpose": "Ziel",
+        "purpose_full": "Ziel der Email (Beschreibung des Empfängers)",
+        "to": "An",
+        "to_full": "Email des Empfämgers",
+        "from_full": "Email Konto von dem gesendet wird",
+        "subject": "Betreff",
+        "text": "Email mit Validierungslink",
+        "add": "Hinzufügen"
+    }
+}

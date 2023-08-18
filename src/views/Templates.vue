@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import { onBeforeMount, ref } from "vue";
+import { useI18n } from 'vue-i18n';
 import { useRouter } from "vue-router";
 import { useAuthStore } from '../stores/auth.store';
 import { fetchWrapper } from "../services"
+import Header from '../components/Header.vue';
 import ButtonPrimary from '../components/ButtonPrimary.vue';
 import ButtonSecondary from '../components/ButtonSecondary.vue';
+
+const { t } = useI18n();
 
 const isopen = ref(false);
 const openitem = ref({} as any);
@@ -66,25 +70,26 @@ function submit() {
 </script>
 
 <template>
-  <div class="w-screen h-full bg-white border-b">
+  <div class="w-screen h-full bg-white">
+    <Header :noimage="true"/>
     <div class="flex flex-col items-center mx-6 overflow-x-auto">
     <div class="flex items-center w-full h-12 place-content-end ">
-        <button @click="logout" class="px-2 text-skin-muted hover:text-skin-accent">Logout</button>
+        <button @click="logout" class="px-2 text-skin-muted hover:text-skin-accent">{{t('logout')}}</button>
     </div>
     <table class="w-full text-sm text-left text-skin-muted">
         <thead class="text-xs uppercase text-skin-base bg-skin-muted">
             <tr>
                 <th scope="col" class="px-6 py-3">
-                  Active
+                  {{t('templates.active')}}
                 </th>
                 <th scope="col" class="px-6 py-3">
-                  Purpose
+                  {{t('templates.purpose')}}  
                 </th>
                 <th scope="col" class="px-6 py-3">
-                  To
+                  {{t('templates.to')}}
                 </th>
                 <th scope="col" class="px-6 py-3">
-                  Subject
+                  {{t('templates.subject')}}
                 </th>
             </tr>
         </thead>
@@ -108,38 +113,38 @@ function submit() {
           <div class="grid gap-6 mt-10 columns-2">
           <div class="flex items-center mt-6">
             <input checked id="checked-checkbox" type="checkbox" v-model="openitem.acitve" class="w-8 h-8 text-skin-accent bg-skin-light border-skin-light focus:ring-skin-focus focus:ring-2">
-            <label for="checked-checkbox" class="ml-2 text-sm font-medium text-skin-muted ">Active</label>
+            <label for="checked-checkbox" class="ml-2 text-sm font-medium text-skin-muted ">{{t('templates.active')}}</label>
           </div>
           <div>
-            <label for="purpose" class="block mb-2 text-sm font-medium text-skin-muted">Purpose of Email</label>
+            <label for="purpose" class="block mb-2 text-sm font-medium text-skin-muted">{{t('templates.purpose_full')}}</label>
             <input type="text" v-model="openitem.purpose" id="purpose" class="block w-full p-2.5" placeholder="Purpose" required>
           </div>
           <div class="col-span-2">
-            <label for="to" class="block mb-2 text-sm font-medium text-skin-muted">Send Email to</label>
+            <label for="to" class="block mb-2 text-sm font-medium text-skin-muted">{{t('templates.to_full')}}</label>
             <input type="text" v-model="openitem.to" id="to" class="block w-full p-2.5" placeholder="To" required>
           </div>
           <div class="col-span-2">
-            <label for="from" class="block mb-2 text-sm font-medium text-skin-muted">Email from</label>
+            <label for="from" class="block mb-2 text-sm font-medium text-skin-muted">{{t('templates.from_full')}}</label>
             <input type="text" v-model="openitem.from" id="from" class="block w-full p-2.5" placeholder="From" required>
           </div>
           <div class="col-span-2">
-            <label for="subject" class="block mb-2 text-sm font-medium text-skin-muted">Subject</label>
+            <label for="subject" class="block mb-2 text-sm font-medium text-skin-muted">{{t('templates.subject')}}</label>
             <input type="text" v-model="openitem.subject" id="subject" class="block w-full p-2.5" placeholder="Subject" required>
           </div>
           <div class="col-span-2">
-            <label for="html" class="block mb-2 text-sm font-medium text-skin-muted">Text</label>
+            <label for="html" class="block mb-2 text-sm font-medium text-skin-muted">{{t('templates.text')}}</label>
             <textarea type="text" v-model="openitem.html" id="html" class="h-40  block w-full p-2.5" placeholder="Message text" required />
           </div>
         <div class="flex justify-end col-span-2 mt-4">
-          <ButtonSecondary cancel @click="cancel">Cancel</ButtonSecondary>
-          <ButtonSecondary submit @click="remove">Delete</ButtonSecondary>
-          <ButtonPrimary submit @click="submit">Ok</ButtonPrimary>
+          <ButtonSecondary cancel @click="cancel">{{t('cancel')}}</ButtonSecondary>
+          <ButtonSecondary submit @click="remove">{{t('delete')}}</ButtonSecondary>
+          <ButtonPrimary submit @click="submit">{{t('OK')}}</ButtonPrimary>
         </div>
         </div>
       </from>
       </div>
     <div v-else class="flex justify-end w-2/3 mt-10">
-      <ButtonPrimary @click="add">Add</ButtonPrimary>
+      <ButtonPrimary @click="add">{{t('templates.add')}}</ButtonPrimary>
     </div>
     </div>
   </div>

@@ -1,26 +1,27 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref, computed, onBeforeMount } from "vue";
 import { useRoute } from "vue-router";
+import { useI18n } from "vue-i18n";
 import { fetchWrapper } from "../services"
 
 import Header from "../components/Header.vue";
 import CleanContainer from "../components/CleanContainer.vue";
 import ButtonPrimary from "../components/ButtonPrimary.vue";
-const route = useRoute()
 
-const intro = ref(`Our information on the internet is free from any privacy related functionality. 
-  It is not using cookies nor external embedded content nor tracking. 
-  But for the contact form we expect you to provide your email address first in order to
-  protect us and our staff. 
-  After you have entered your address you will receive an email with the link to the
-  web form, where you can send your message to us. We are looking forward to hear from you!
-  `
-);
+const route = useRoute()
+const { t } = useI18n();
+
 const thanks = ref(false)
 const error = ref("")
 const message = ref("")
 const subject = ref("")
 const valid = ref("")
+const title = computed(()=>
+        (error.value.length>0?t('error'):(thanks.value?t('thankyou'):t('emailform.title')))
+        )
+const intro = computed(()=>
+        (error.value.length>0?t('emailform.invalid'):(thanks.value?t('emailform.done'):t('emailform.intro')))
+        )
 const validated = computed(()=>{
     return message.value.length > 3 
 })
@@ -44,41 +45,34 @@ function submit() {
  }
  fetchWrapper.postraw("/api/message",data).then(()=>thanks.value=true)
 }
+
+onBeforeMount(()=>thanks.value=false)
 </script>
 
 <template>
     <div>
-        <Header :title="'Send Email'" :intro="intro" />
-        <CleanContainer>
-            <div v-if="error.length>0" class="flex flex-col w-full">
-                {{ error }}
-            </div>
-            <div v-else-if="!thanks" class="flex flex-col w-full">
+        <Header :title="title" 
+                :intro="intro" />
+
+        <CleanContainer v-if="error.length==0 && !thanks">
+            <div class="flex flex-col w-full">
                 <div>
-                    Your Email to {{ valid }}
+                    {{t('emailform.your_email_to') +": "+ valid }}
                 </div>
                 <div class="col-span-2">
-                    <label for="subject" class="block mb-2 text-sm font-medium text-skin-muted">Subject</label>
+                    <label for="subject" class="block mb-2 text-sm font-medium text-skin-muted">
+                        {{t('emailform.subject')}}
+                        </label>
                     <input type="text" v-model="subject" id="subject" class="block w-full p-2.5" placeholder="Subject" required />
                 </div>
                 <div class="col-span-2">
-                    <label for="html" class="block mb-2 text-sm font-medium text-skin-muted">Your Message</label>
+                    <label for="html" class="block mb-2 text-sm font-medium text-skin-muted">
+                        {{t('emailform.message')}}
+                        </label>
                     <textarea type="text" v-model="message" id="html" class="h-40  block w-full p-2.5" placeholder="Message text" required />
                 </div>
                 <div class="flex mt-8 place-content-end">
-                    <ButtonPrimary :disabled="!validated" @click="submit">Ok</ButtonPrimary>
-                </div>
-            </div>
-            <div v-else class="flex flex-col items-center justify-center md:mt-4">
-                <div class="leading-tight sm:px-2 menu-underline">
-                    <h1 class="font-bold tracking-widest uppercase sm:text-xl md:text-2xl text-md">
-                        Thank you!
-                    </h1>
-                </div>
-                <div class="w-3/5 mt-6">
-                    <p class="md:leading-loose font-bold text-xs md:text-sm tracking-wider text-center text-[#888888]">
-                        Please check your Inbox and maybe your Spam folder.
-                    </p>
+                    <ButtonPrimary :disabled="!validated" @click="submit">{{t('thankyou')}}</ButtonPrimary>
                 </div>
             </div>
         </CleanContainer>

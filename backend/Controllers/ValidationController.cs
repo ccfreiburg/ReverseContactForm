@@ -23,7 +23,7 @@ public class ValidationController : ControllerBase
     public async Task<IActionResult> Validate( ValidationRequest userInput )
     {
         var link = await _oneTimeLinkService.Get(userInput.Purpose, userInput.Email);
-        var url = _oneTimeLinkService.GetFullUrl(link.Slug);
+        var url = _oneTimeLinkService.GetFullUrl(link.Slug, userInput.Language);
         var message = await _templateService.GetMessageByPurpose(userInput.Purpose,url,userInput.Email);
         _emailer.Send(userInput.Email,"Link to Calvary Chapel Freiburg Contact Form",message);
         return Ok();

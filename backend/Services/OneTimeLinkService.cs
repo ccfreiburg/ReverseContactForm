@@ -16,7 +16,7 @@ public interface IOneTimeLinkService
     Task<OneTimeLink> Check( string slug );
     void Invalidate( string slug );
     void InvalidateOld( );
-    string GetFullUrl( string slug );
+    string GetFullUrl( string slug, string? language );
 
 }
 
@@ -42,7 +42,7 @@ public class OneTimeLinkService : IOneTimeLinkService
         _db = db;
     }
 
-    public async Task<OneTimeLink> Get( string purpose, string email ) {
+    public async Task<OneTimeLink> Get( string purpose, string email) {
 
         var entry = new OneTimeLink() {
             Slug = Protect(purpose+email),
@@ -55,8 +55,8 @@ public class OneTimeLinkService : IOneTimeLinkService
         return entry;
     }
 
-    public string GetFullUrl( string slug ) {
-        return _baseUrl+"message/"+slug;
+    public string GetFullUrl( string slug, string? language ) {
+        return _baseUrl+(language!=null && language.Length==2?language+"/":"")+"message/"+slug;
     }
 
     public async Task<OneTimeLink> Check( string slug ) {

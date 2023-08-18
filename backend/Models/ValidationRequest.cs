@@ -9,4 +9,5 @@ public class ValidationRequest
 
     [Required]
     public string Purpose { get; set; }
+    public string Language { get; set; }
 }

@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useAuthStore } from "../stores/auth.store";
+import { useI18n } from 'vue-i18n';
 import ButtonPrimary from "../components/ButtonPrimary.vue";
+import Header from "../components/Header.vue";
 
+const { t } = useI18n();
 const authStore = useAuthStore();
 //const { user: authUser } = storeToRefs(authStore);
 
@@ -15,13 +18,15 @@ async function submit() {
     try {
         await authStore.login(username.value, password.value);
     } catch (e) {
-        error.value = "Username or password not incorrect."
+        error.value = t('passerror')
         password.value = ""
     }
 }
 </script>
 
 <template>
+  <div>
+    <Header></Header>
   <div class="flex flex-col items-center w-full mt-12">
     <div class="w-1/3 bg-skin-light">
 
@@ -30,27 +35,23 @@ async function submit() {
         <label
           for="purpose"
           class="block mb-2 text-sm font-medium"
-          >Username</label
-        >
+          >{{ t('username') }}</label>
         <input
           type="text"
           v-model="username"
           id="purpose"
           class="block w-full p-2.5"
-          placeholder="Username"
           required
         />
       </div>
       <div class="col-span-2">
         <label for="to" class="block mb-2 text-sm font-medium"
-          >Password</label
-        >
+        >{{ t('password') }}</label>
         <input
           type="password"
           v-model="password"
           id="to"
           class="block w-full p-2.5"
-          placeholder="Password"
           required
         />
       </div>
@@ -61,8 +62,9 @@ async function submit() {
         </div>
     </div>
       <div class="flex justify-end mt-2">
-        <ButtonPrimary @click="submit">Ok</ButtonPrimary>
+        <ButtonPrimary @click="submit">{{ t('OK') }}</ButtonPrimary>
       </div>
     </div>
   </div>
+</div>
 </template>

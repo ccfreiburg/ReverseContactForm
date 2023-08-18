@@ -1,0 +1,40 @@
+{
+    "de": "German",
+    "en": "English",
+    "username": "Username",
+    "password": "Password",
+    "passerror": "Username or password incorrect.",
+    "logout": "Logout",
+    "thankyou": "Thank you!",
+    "OK": "Ok",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "error": "Error",
+    "emailform": {
+        "title": "Send Email",
+        "intro": "Here you can send your email to the requested person or team or function",
+        "invalid": "The Link is wrong or outdated. Please get a new link.",
+        "your_email_to": "Your Email to",
+        "subject": "Subject",
+        "message": "Your message",
+        "done": "We have sent your message!"
+    },
+    "contactform": {
+        "title": "Send Email",
+        "intro": "Our web site is free from any privacy related functionality. No cookies nor external embedded content nor tracking. For the contact form we expect you to provide your email address first. We are looking forward to hear from you!",
+        "who_to_contact": "Who do you want to contact?",
+        "your_email": "Your Email Address",
+        "check_your_email": "We have sent an email containing the link to the contact form to you. Please check your Inbox and maybe your Spam folder."
+    },
+    "templates": {
+        "active": "Active",
+        "purpose": "Purpose",
+        "purpose_full": "Purpose of Email (describe the receiver)",
+        "to": "To",
+        "to_full": "Email of the receiver",
+        "from_full": "Email Accont to send from",
+        "subject": "Subject",
+        "text": "Text for validation email",
+        "add": "Add"
+    }
+}
