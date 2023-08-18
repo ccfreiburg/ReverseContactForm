@@ -1,8 +1,5 @@
 #sec
 .env
-backend/appsettings.json
-backend/Database.*
-yarn.lock
 
 # Logs
 logs
@@ -307,3 +304,6 @@ __pycache__/
 # tools/
 
 # End of https://www.toptal.com/developers/gitignore/api/aspnetcore
+backend/data/Database.db
+backend/data/Database.db-shm
+backend/data/Database.db-wal
