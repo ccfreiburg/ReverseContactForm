@@ -57,7 +57,7 @@ function submit() {
             {{t('contactform.who_to_contact')}} 
               </label>
             <select id="purpose" class="block w-full p-2.5" v-model="purpose">
-                <option v-for="option in options" :value="option.id">{{ option.value }}</option>
+                <option v-for="option in options" :key="option.id" :value="option.id">{{ option.value }}</option>
             </select>
         </div>
         <div class="mt-6">
