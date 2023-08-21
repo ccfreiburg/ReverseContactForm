@@ -17,6 +17,7 @@
         "your_email_to": "Deine Email an",
         "subject": "Betreff",
         "message": "Nachricht",
+        "send": "Senden",
         "done": "Deine Email wurde versandt!"
     },
     "contactform": {

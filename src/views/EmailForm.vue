@@ -72,7 +72,7 @@ onBeforeMount(()=>thanks.value=false)
                     <textarea type="text" v-model="message" id="html" class="h-40  block w-full p-2.5" placeholder="Message text" required />
                 </div>
                 <div class="flex mt-8 place-content-end">
-                    <ButtonPrimary :disabled="!validated" @click="submit">{{t('thankyou')}}</ButtonPrimary>
+                    <ButtonPrimary :disabled="!validated" @click="submit">{{t('emailform.send')}}</ButtonPrimary>
                 </div>
             </div>
         </CleanContainer>
