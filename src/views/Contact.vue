@@ -12,7 +12,7 @@ const email = ref("");
 
 const thanks = ref(false)
 const options = ref([] as Array<string>)
-const purpose = ref(0)
+const purpose = ref("")
 const validated = computed(()=>{
     return validateEmail(email.value)
 })
