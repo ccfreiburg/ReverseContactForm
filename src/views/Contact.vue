@@ -11,34 +11,24 @@ const { t, locale } = useI18n()
 const email = ref("");
 
 const thanks = ref(false)
-const options = ref([] as Array<any>)
+const options = ref([] as Array<string>)
 const purpose = ref(0)
 const validated = computed(()=>{
     return validateEmail(email.value)
 })
 function refresh() {
-    fetchWrapper.get("/api/Template/purposes").then(
-      (x)=> {
-        var id = 0;
-        options.value = [] as Array<any>
-        x.forEach(element => {
-          options.value.push({
-            id,
-            value: element
-        })
-        });
-      }
-    )
-    if (options.value.length>0)
-      purpose.value = options.value[0]
-}
+    fetchWrapper.get("/api/Template/purposes").then((x)=> options.value = x).then(()=>{
+      if (options.value.length>0)
+        purpose.value = options.value[0]
+    })
+    }
 refresh()
 function submit() {
   fetchWrapper.postraw("/api/Validation", 
   {
     email: email.value,
     language: (locale.value && locale.value!="de"?locale.value:""),
-    purpose: options.value[purpose.value].value
+    purpose: purpose.value
   }).then(()=> {
     thanks.value = true
   })
@@ -56,8 +46,8 @@ function submit() {
             <label for="purpose" class="block mb-2 text-sm font-medium text-skin-muted">
             {{t('contactform.who_to_contact')}} 
               </label>
-            <select id="purpose" class="block w-full p-2.5" v-model="purpose">
-                <option v-for="option in options" :key="option.id" :value="option.id">{{ option.value }}</option>
+            <select id="purpose" class="h-10 w-full p-2.5" v-model="purpose">
+                <option v-for="(option, index) in options" :key="index" :value="option">{{ option }}</option>
             </select>
         </div>
         <div class="mt-6">
