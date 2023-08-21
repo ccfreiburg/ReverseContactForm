@@ -95,7 +95,7 @@
     @apply bg-skin-muted focus:outline-none border border-skin-light ring-skin-light text-skin-base text-sm rounded-md focus:ring-skin-focus focus:border-skin-focus accent-transparent
    }
    select {
-    @apply bg-skin-muted focus:outline-none border border-skin-light ring-skin-light text-skin-base text-sm rounded-md focus:ring-skin-focus focus:border-skin-focus accent-transparent
+    @apply bg-skin-muted  border border-skin-light ring-skin-light text-skin-base text-sm rounded-md  accent-transparent
    }
    
    textarea {
