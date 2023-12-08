@@ -8,13 +8,14 @@
     "thankyou": "Thank you!",
     "OK": "Ok",
     "cancel": "Cancel",
+    "copy": "Copy",
     "delete": "Delete",
     "error": "Error",
     "emailform": {
         "title": "Send Email",
         "intro": "Here you can send your email to the requested person or team or function",
         "invalid": "The Link is wrong or outdated. Please get a new link.",
-        "your_email_to": "Your Email to",
+        "your_email_to": "Your ",
         "subject": "Subject",
         "message": "Your message",
         "send": "Send",
@@ -30,6 +31,7 @@
     "templates": {
         "active": "Active",
         "purpose": "Purpose",
+        "slug": "Slug",
         "purpose_full": "Purpose of Email (describe the receiver)",
         "to": "To",
         "to_full": "Email of the receiver",

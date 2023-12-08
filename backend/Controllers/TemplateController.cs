@@ -61,6 +61,8 @@ public class TemplateController : ControllerBase
     public IActionResult Purposes( )
     {
         var templates = _templateService.GetAll();
-        return Ok(templates.Where((x)=>x.Active).Select((x)=>x.Purpose).ToArray<string>());
-    }
+        return Ok(templates.Where((x)=>x.Active).Select((x)=> new PurposeRequest{
+                Slug = x.Slug,
+                Purpose = x.Purpose
+            }).ToArray<PurposeRequest>());    }
 }

@@ -6,6 +6,9 @@ public class TemplateRequest
 {
     [Required]
     public bool Active { get; set; }
+   
+    [Required]
+    public string Slug { get; set; }
 
     [Required]
     public string Purpose { get; set; }

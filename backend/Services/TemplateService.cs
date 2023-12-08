@@ -43,6 +43,7 @@ public class TemplateService : ITemplateService
     public async Task<EmailTemplate> Add( TemplateRequest template ) {
         var entry = new EmailTemplate(){
             Active = template.Active,
+            Slug = template.Slug,
             Purpose = template.Purpose,
             To = template.To,
             From = template.From,
@@ -58,6 +59,7 @@ public class TemplateService : ITemplateService
         var entry = await _db.EmailTemplates.FindAsync(template.Id);
         if (entry is null) return false;
         entry.Active = template.Active;
+        entry.Slug = template.Slug;
         entry.Purpose = template.Purpose;
         entry.To = template.To;
         entry.From = template.From;

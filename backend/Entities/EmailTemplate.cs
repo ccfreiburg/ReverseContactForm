@@ -3,6 +3,7 @@ public class EmailTemplate
   {
     public int Id { get; set; }    
     public bool Active { get; set; }    
+    public string Slug { get; set; }
     public string Purpose { get; set; }
     public string To { get; set; }
     public string From { get; set; }

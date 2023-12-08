@@ -8,13 +8,14 @@
     "thankyou": "Danke!",
     "OK": "Ok",
     "cancel": "Abbruch",
+    "copy": "Kopieren",
     "delete": "Löschen",
     "error": "Fehler",
     "emailform": {
         "title": "Email senden",
         "intro": "Hier kannst du deine Email an die ausgewählte Person oder Funktion senden",
         "invalid": "Der Link ist fehlerhaft oder inzwischen veraltet. Bitte lass dir einen Neuen schicken.",
-        "your_email_to": "Deine Email an",
+        "your_email_to": "Deine ",
         "subject": "Betreff",
         "message": "Nachricht",
         "send": "Senden",
@@ -30,6 +31,7 @@
     "templates": {
         "active": "Aktiv",
         "purpose": "Ziel",
+        "slug": "Slug",
         "purpose_full": "Ziel der Email (Beschreibung des Empfängers)",
         "to": "An",
         "to_full": "Email des Empfämgers",

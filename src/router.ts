@@ -12,6 +12,8 @@ export const router = createRouter({
     routes: [
         { path: '/', component: Contact },
         { path: '/en', component: Contact },
+        { path: '/:slug', component: Contact },
+        { path: '/en/:slug', component: Contact },
         { path: '/templates', component: Templates },
         { path: '/en/templates', component: Templates },
         { path: '/message/:slug', component: EmailForm },
