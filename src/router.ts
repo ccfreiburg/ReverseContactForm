@@ -12,8 +12,8 @@ export const router = createRouter({
     routes: [
         { path: '/', component: Contact },
         { path: '/en', component: Contact },
-        { path: '/:slug', component: Contact },
-        { path: '/en/:slug', component: Contact },
+        { path: '/m/:slug', component: Contact },
+        { path: '/en/m/:slug', component: Contact },
         { path: '/templates', component: Templates },
         { path: '/en/templates', component: Templates },
         { path: '/message/:slug', component: EmailForm },
@@ -33,15 +33,13 @@ router.beforeEach(async (to: RouteLocation) => {
         to_compare_part = to.path
     }
     if (to_compare_part=="") to_compare_part ="/"
-    console.log(to_lang_part)
-    console.log(to_compare_part)
 
     // set the current language for vuex-i18n. note that translation data
     // for the language might need to be loaded first
     const publicPages = ['/login', '/'];
     // http://localhost:5084/message/24A8B9942DCE9A125A7E3A7918BDED84D86A7CFDBD89A88EAA0157E1B8CDA43C
     const isOneTimeToken = to_compare_part.startsWith('/message') && to_compare_part.length==73 // length of message + SHA256
-    const authRequired = !publicPages.includes(to_compare_part) && !isOneTimeToken;
+    const authRequired = !publicPages.includes(to_compare_part) && !isOneTimeToken && !to_compare_part.startsWith("/m");
     // redirect to login page if not logged in and trying to access a restricted page
 
     const auth = useAuthStore();
