@@ -304,6 +304,7 @@ __pycache__/
 # tools/
 
 # End of https://www.toptal.com/developers/gitignore/api/aspnetcore
+backend/data/*.data
 backend/data/Database.db
 backend/data/Database.db-shm
 backend/data/Database.db-wal

@@ -34,7 +34,7 @@ function submit() {
   {
     email: email.value,
     language: (locale.value && locale.value!="de"?locale.value:""),
-    purpose: options.value[purpose.value].purpose
+    purpose: purpose.value
   }).then(()=> {
     thanks.value = true
   })
